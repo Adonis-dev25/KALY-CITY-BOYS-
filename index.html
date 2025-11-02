@@ -1,1 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KALY CITY BoYS - AIRWAYS</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: blue;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+/* ===== Mobile Responsiveness ===== */
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .navbar .nav-link {
+    display: block;
+    margin: 8px 0;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  form {
+    padding: 0 10px;
+  }
+
+  .table {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 100px;
+            padding: 2rem 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color:dark blue;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Booking Form */
+        .booking-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input, .form-group select {
+            padding: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Destinations & Flights */
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .destination-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .destination-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #764ba2;
+            margin: 1rem 0;
+        }
+
+        /* Location Display */
+        .location-info {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 3rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        /* Receipt Styles */
+        .receipt {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border: 2px dashed #667eea;
+        }
+
+        .receipt-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 1rem;
+        }
+
+        .receipt-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .print-btn, .download-btn {
+            background: #667eea;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .print-btn:hover, .download-btn:hover {
+            background: #5a67d8;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Additional Styles */
+        .error {
+            color: #e53e3e;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .success {
+            color: #38a169;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .distance-info {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .page-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-plane"></i>
+                KALY CITY BOYS AIRWAYS 
+            </div>
+            <ul class="nav-links">
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('policies')">Policies</a></li>
+                <li><a onclick="showSection('terms')">Terms</a></li>
+                <li><a onclick="showSection('location')">Location</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+                <li><a onclick="showSection('privacy')">Privacy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <h1><i class="fas fa-plane"></i> KALY CITY BOYS AIRWAYS</h1>
+                <p>Your Journey, Our Commitment - Fly with Excellence</p>
+            </div>
+
+            <div class="booking-section">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: #667eea;">Book Your Flight</h2>
+                <form id="bookingForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="from">From</label>
+                            <select id="from" required>
+                                <option value="">Select Departure City</option>
+                                <option value="lusaka">Lusaka, Zambia</option>
+                                <option value="johannesburg">Johannesburg, South Africa</option>
+                                <option value="nairobi">Nairobi, Kenya</option>
+                                <option value="dubai">Dubai, UAE</option>
+                                <option value="london">London, UK</option>
+                                <option value="paris">Paris, France</option>
+                                <option value="newyork">New York, USA</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="to">To</label>
+                            <select id="to" required>
+                                <option value="">Select Destination</option>
+                                <option value="lusaka">Lusaka, Zambia</option>
+                                <option value="johannesburg">Johannesburg, South Africa</option>
+                                <option value="nairobi">Nairobi, Kenya</option>
+                                <option value="dubai">Dubai, UAE</option>
+                                <option value="london">London, UK</option>
+                                <option value="paris">Paris, France</option>
+                                <option value="newyork">New York, USA</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="departure">Departure Date</label>
+                            <input type="date" id="departure" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="return">Return Date (Optional)</label>
+                            <input type="date" id="return">
+                        </div>
+                        <div class="form-group">
+                            <label for="passengers">Passengers</label>
+                            <select id="passengers" required>
+                                <option value="1">1 Passenger</option>
+                                <option value="2">2 Passengers</option>
+                                <option value="3">3 Passengers</option>
+                                <option value="4">4 Passengers</option>
+                                <option value="5">5+ Passengers</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="class">Class</label>
+                            <select id="class" required>
+                                <option value="economy">Economy</option>
+                                <option value="business">Business</option>
+                                <option value="first">First Class</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="button" class="search-btn" onclick="searchFlights()">
+                            <i class="fas fa-search"></i> Search Flights
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="location-info" id="locationInfo">
+                <h3><i class="fas fa-map-marker-alt"></i> Your Current Location</h3>
+                <p id="currentLocation">Getting your location...</p>
+                <button onclick="getCurrentLocation()" class="search-btn" style="margin-top: 1rem;">
+                    <i class="fas fa-location-arrow"></i> Update Location
+                </button>
+            </div>
+
+            <div class="distance-info" id="distanceInfo" style="display: none;">
+                <i class="fas fa-route" style="font-size: 2rem; color: #667eea;"></i>
+                <div>
+                    <h4>Distance to Destination</h4>
+                    <p id="distanceText"></p>
+                    <p id="directionText"></p>
+                </div>
+            </div>
+
+            <div class="destinations">
+                <div class="destination-card" onclick="selectDestination('johannesburg')">
+                    <i class="fas fa-city" style="font-size: 3rem; color: #667eea; margin-bottom: 1rem;"></i>
+                    <h3>Johannesburg</h3>
+                    <p>Gateway to South Africa</p>
+                    <div class="price">$299</div>
+                    <p><i class="fas fa-plane"></i> Direct Flight Available</p>
+                </div>
+                <div class="destination-card" onclick="selectDestination('nairobi')">
+                    <i class="fas fa-mountain" style="font-size: 3rem; color: #667eea; margin-bottom: 1rem;"></i>
+                    <h3>Nairobi</h3>
+                    <p>Heart of East Africa</p>
+                    <div class="price">$399</div>
+                    <p><i class="fas fa-plane"></i> 2 Flights Daily</p>
+                </div>
+                <div class="destination-card" onclick="selectDestination('dubai')">
+                    <i class="fas fa-building" style="font-size: 3rem; color: #667eea; margin-bottom: 1rem;"></i>
+                    <h3>Dubai</h3>
+                    <p>City of Gold</p>
+                    <div class="price">$799</div>
+                    <p><i class="fas fa-plane"></i> Daily Connections</p>
+                </div>
+                <div class="destination-card" onclick="selectDestination('london')">
+                    <i class="fas fa-landmark" style="font-size: 3rem; color: #667eea; margin-bottom: 1rem;"></i>
+                    <h3>London</h3>
+                    <p>Historic Capital</p>
+                    <div class="price">$1299</div>
+                    <p><i class="fas fa-plane"></i> Premium Service</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Sections -->
+        <section id="policies" class="page-section">
+            <h2 style="color: #667eea; margin-bottom: 2rem;">Our Policies</h2>
+            <div style="color: #333; line-height: 1.8;">
+                <h3>Booking Policy</h3>
+                <p>All bookings are subject to availability and confirmation. Prices are subject to change without notice until payment is completed.</p>
+                
+                <h3>Cancellation Policy</h3>
+                <p>Cancellations made 24 hours before departure are eligible for full refund. Cancellations within 24 hours may incur charges.</p>
+                
+                <h3>Baggage Policy</h3>
+                <p>Economy class includes 20kg checked baggage and 7kg carry-on. Business class includes 30kg checked baggage and 10kg carry-on.</p>
+                
+                <h3>Check-in Policy</h3>
+                <p>Online check-in opens 24 hours before departure. Airport check-in closes 2 hours before international flights and 1 hour before domestic flights.</p>
+            </div>
+        </section>
+
+        <section id="terms" class="page-section">
+            <h2 style="color: #667eea; margin-bottom: 2rem;">Terms & Conditions</h2>
+            <div style="color: #333; line-height: 1.8;">
+                <h3>General Terms</h3>
+                <p>By booking with kaly city boys Airways, you agree to our terms and conditions. These terms govern your relationship with GIFT MWAKA AIRWAYS rter Airways and your use of our services.</p>
+                
+                <h3>Liability</h3>
+                <p>kaly city Airways liability is limited as per international aviation regulations. We are not responsible for delays due to weather, technical issues, or circumstances beyond our control.</p>
+                
+                <h3>Passenger Rights</h3>
+                <p>Passengers have the right to compensation in case of denied boarding, cancellations, or significant delays as per applicable regulations.</p>
+                
+                <h3>Changes to Terms</h3>
+                <p>kaly city boys Airways reserves the right to modify these terms at any time. Continued use of our services constitutes acceptance of modified terms.</p>
+            </div>
+        </section>
+
+        <section id="location" class="page-section">
+            <h2 style="color: #667eea; margin-bottom: 2rem;">Our Locations</h2>
+            <div style="color: #333; line-height: 1.8;">
+                <h3>Headquarters</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Lusaka, Zambia</p>
+                <p><i class="fas fa-phone"></i> +260 774169681</p>
+                <p><i class="fas fa-envelope"></i> info@kalycityboysairways.com</p>
+                
+                <h3>Regional Offices</h3>
+                <p><strong>Johannesburg Office:</strong> OR Tambo International Airport</p>
+                <p><strong>Nairobi Office:</strong> Jomo Kenyatta International Airport</p>
+                <p><strong>Dubai Office:</strong> Dubai International Airport</p>
+                
+                <div id="liveLocationDisplay">
+                    <h3>Your Current Location</h3>
+                    <p id="detailedLocation">Detecting your location...</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="page-section">
+            <h2 style="color: #667eea; margin-bottom: 2rem;">Contact Us</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div>
+                    <h3>Get in Touch</h3>
+                    <p><i class="fas fa-phone"></i> Phone: +260 774169681</p>
+                    <p><i class="fas fa-envelope"></i> Email: contact@quarterairways.com</p>
+                    <p><i class="fas fa-clock"></i> Available 24/7</p>
+                    
+                    <h3 style="margin-top: 2rem;">WhatsApp Support</h3>
+                    <a href="https://wa.me/260774169681" class="search-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+                <div>
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" id="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" rows="4" style="padding: 1rem; border: 2px solid #e1e5e9; border-radius: 10px; font-family: inherit;" required></textarea>
+                        </div>
+                        <button type="submit" class="search-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="privacy" class="page-section">
+            <h2 style="color: #667eea; margin-bottom: 2rem;">Privacy Policy</h2>
+            <div style="color: #333; line-height: 1.8;">
+                <h3>Data Collection</h3>
+                <p>We collect personal information necessary for flight bookings, including name, contact details, and travel preferences. Location data is used to enhance your booking experience.</p>
+                
+                <h3>Data Usage</h3>
+                <p>Your information is used solely for providing our services, processing bookings, and improving customer experience. We do not sell or share personal data with third parties without consent.</p>
+                
+                <h3>Data Security</h3>
+                <p>We implement industry-standard security measures to protect your personal information. All transactions are encrypted and secure.</p>
+                
+                <h3>Your Rights</h3>
+                <p>You have the right to access, modify, or delete your personal information. Contact us at privacygiftmwaka@gmail.com for any privacy-related concerns.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Booking Details Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bookingModal')">&times;</span>
+            <h2 style="color: #667eea; margin-bottom: 2rem;">Complete Your Booking</h2>
+            <form id="passengerForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required>
+                        <div id="emailError" class="error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="passport">Passport Number</label>
+                        <input type="text" id="passport">
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button type="button" class="search-btn" onclick="processBooking()">
+                        <i class="fas fa-credit-card"></i> Complete Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Receipt Modal -->
+    <div id="receiptModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('receiptModal')">&times;</span>
+            <div id="receiptContent" class="receipt">
+                <!-- Receipt content will be generated here -->
+            </div>
+            <div style="text-align: center;">
+                <button class="print-btn" onclick="printReceipt()">
+                    <i class="fas fa-print"></i> Print Receipt
+                </button>
+                <button class="download-btn" onclick="downloadReceipt()">
+                    <i class="fas fa-download"></i> Download PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/260774169681" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Global variables
+        let currentBooking = {};
+        let userLocation = null;
+
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function() {
+            getCurrentLocation();
+            setMinDate();
+        });
+
+        // Set minimum date to today
+        function setMinDate() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('departure').min = today;
+            document.getElementById('return').min = today;
+        }
+
+        // Navigation functions
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update location display when location section is shown
+            if (sectionId === 'location') {
+                getCurrentLocation();
+            }
+        }
+
+        // Geolocation functions
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById('currentLocation').innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            userLocation = { lat, lon };
+            
+            // Reverse geocoding to get address
+            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon}&key=YOUR_API_KEY`)
+                .catch(() => {
+                    // Fallback when API is not available
+                    const locationText = `Latitude: ${lat.toFixed(4)}, Longitude: ${lon.toFixed(4)}`;
+                    document.getElementById('currentLocation').innerHTML = locationText;
+                    document.getElementById('detailedLocation').innerHTML = locationText;
+                });
+        }
+
+        function showError(error) {
+            let message = "";
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    message = "User denied the request for Geolocation.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    message = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    message = "The request to get user location timed out.";
+                    break;
+                default:
+                    message = "An unknown error occurred.";
+                    break;
+            }
+            document.getElementById('currentLocation').innerHTML = message;
+            document.getElementById('detailedLocation').innerHTML = message;
+        }
+
+        // Flight search and booking functions
+        function searchFlights() {
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+            const departure = document.getElementById('departure').value;
+            const passengers = document.getElementById('passengers').value;
+            const flightClass = document.getElementById('class').value;
+
+            if (!from || !to || !departure) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            if (from === to) {
+                alert('Departure and destination cities cannot be the same');
+                return;
+            }
+
+            // Store booking details
+            currentBooking = {
+                from: from,
+                to: to,
+                departure: departure,
+                return: document.getElementById('return').value,
+                passengers: passengers,
+                class: flightClass,
+                price: calculatePrice(from, to, flightClass)
+            };
+
+            // Show distance information
+            showDistanceInfo(from, to);
+
+            // Open booking modal
+            document.getElementById('bookingModal').style.display = 'block';
+        }
+
+        function selectDestination(destination) {
+            document.getElementById('to').value = destination;
+            document.getElementById('from').value = 'lusaka'; // Default from Lusaka
+            
+            // Auto-fill today's date
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('departure').value = today;
+            
+            // Scroll to booking form
+            document.querySelector('.booking-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculatePrice(from, to, flightClass) {
+            const basePrices = {
+                'lusaka-johannesburg': $239,
+                'lusaka-nairobi': $399,
+                'lusaka-dubai': $799,
+                'lusaka-london':$1299,
+                'lusaka-paris': $1399,
+                'lusaka-newyork': $1599,
+                'johannesburg-lusaka': $299,
+                'nairobi-lusaka': $399,
+                'dubai-lusaka':$799,
+                'london-lusaka': $1299,
+                'paris-lusaka': $1399,
+                'newyork-lusaka': $1599,
+                'johannesburg-nairobi': $199,
+                'nairobi-johannesburg':$199,
+                'dubai-london': $399,
+                'london-dubai': $399,
+                'paris-newyork': $599,
+                'newyork-paris': $599
+            };
+
+            const route = `${from}-${to}`;
+            let basePrice = basePrices[route] || $66499; // Default price
+
+            // Apply class multiplier
+            const classMultiplier = {
+                'economy': 2,
+                'business': 3,
+                'first': 4
+            };
+
+            return Math.round(basePrice * classMultiplier[flightClass]);
+        }
+
+        function showDistanceInfo(from, to) {
+            const distances = {
+                'lusaka-johannesburg': { distance: '1,200 km', direction: 'Southeast', duration: '2h 30m' },
+                'lusaka-nairobi': { distance: '1,800 km', direction: 'Northeast', duration: '3h 15m' },
+                'lusaka-dubai': { distance: '5,200 km', direction: 'Northeast', duration: '7h 45m' },
+                'lusaka-london': { distance: '8,500 km', direction: 'North', duration: '11h 30m' },
+                'lusaka-paris': { distance: '8,200 km', direction: 'Northwest', duration: '11h 15m' },
+                'lusaka-newyork': { distance: '12,800 km', direction: 'Northwest', duration: '16h 45m' }
+            };
+
+            const route = `${from}-${to}`;
+            const info = distances[route];
+
+            if (info) {
+                document.getElementById('distanceInfo').style.display = 'flex';
+                document.getElementById('distanceText').textContent = `${info.distance} (${info.duration} flight time)`;
+                document.getElementById('directionText').textContent = `Direction: ${info.direction}`;
+            }
+        }
+
+        function processBooking() {
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const passport = document.getElementById('passport').value;
+
+            // Validate email
+            if (!email.includes('@')) {
+                document.getElementById('emailError').textContent = 'Email must contain @ symbol';
+                return;
+            } else {
+                document.getElementById('emailError').textContent = '';
+            }
+
+            if (!fullName || !email) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            // Complete booking details
+            currentBooking.passenger = {
+                name: fullName,
+                email: email,
+                phone: phone,
+                passport: passport
+            };
+            currentBooking.bookingId = generateBookingId();
+            currentBooking.bookingDate = new Date().toLocaleDateString();
+            currentBooking.bookingTime = new Date().toLocaleTimeString();
+
+            // Close booking modal and show receipt
+            closeModal('bookingModal');
+            showReceipt();
+        }
+
+        function generateBookingId() {
+            return 'QA' + Date.now().toString().slice(-8);
+        }
+
+        function showReceipt() {
+            const receipt = document.getElementById('receiptContent');
+            const price = currentBooking.price;
+            const taxes = Math.round(price * 0.15);
+            const total = price + taxes;
+
+            receipt.innerHTML = `
+                <div class="receipt-header">
+                    <h2><i class="fas fa-plane"></i> Kaly city boys Airways</h2>
+                    <p>Booking Confirmation</p>
+                    <p><strong>Booking ID: ${currentBooking.bookingId}</strong></p>
+                </div>
+                
+                <div class="receipt-details">
+                    <div>
+                        <h4>Passenger Information</h4>
+                        <p><strong>Name:</strong> ${currentBooking.passenger.name}</p>
+                        <p><strong>Email:</strong> ${currentBooking.passenger.email}</p>
+                        <p><strong>Phone:</strong> ${currentBooking.passenger.phone || 'Not provided'}</p>
+                        <p><strong>Passport:</strong> ${currentBooking.passenger.passport || 'Not provided'}</p>
+                    </div>
+                    
+                    <div>
+                        <h4>Flight Information</h4>
+                        <p><strong>From:</strong> ${getLocationName(currentBooking.from)}</p>
+                        <p><strong>To:</strong> ${getLocationName(currentBooking.to)}</p>
+                        <p><strong>Departure:</strong> ${currentBooking.departure}</p>
+                        <p><strong>Return:</strong> ${currentBooking.return || 'One-way'}</p>
+                        <p><strong>Passengers:</strong> ${currentBooking.passengers}</p>
+                        <p><strong>Class:</strong> ${currentBooking.class}</p>
+                    </div>
+                </div>
+                
+                <div style="border-top: 2px solid #667eea; padding-top: 1rem;">
+                    <h4>Payment Summary</h4>
+                    <div style="display: flex; justify-content: space-between; margin: 0.5rem 0;">
+                        <span>Base Fare:</span>
+                        <span>${price}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin: 0.5rem 0;">
+                        <span>Taxes & Fees:</span>
+                        <span>${taxes}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin: 1rem 0; font-weight: bold; font-size: 1.2rem; border-top: 1px solid #ccc; padding-top: 0.5rem;">
+                        <span>Total Amount:</span>
+                        <span>${total}</span>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
+                    <p><strong>Booking Date:</strong> ${currentBooking.bookingDate} at ${currentBooking.bookingTime}</p>
+                    <p style="color: #667eea; font-weight: bold;">Thank you for choosing kaly city boys Airways!</p>
+                    <p style="font-size: 0.9rem; color: #666;">Please arrive at the airport 2 hours before international flights</p>
+                </div>
+            `;
+
+            document.getElementById('receiptModal').style.display = 'block';
+        }
+
+        function getLocationName(code) {
+            const locations = {
+                'lusaka': 'Lusaka, Zambia',
+                'johannesburg': 'Johannesburg, South Africa',
+                'nairobi': 'Nairobi, Kenya',
+                'dubai': 'Dubai, UAE',
+                'london': 'London, UK',
+                'paris': 'Paris, France',
+                'newyork': 'New York, USA'
+            };
+            return locations[code] || code;
+        }
+
+        function printReceipt() {
+            const receiptContent = document.getElementById('receiptContent').innerHTML;
+            const printWindow = window.open('', '', 'height=600,width=800');
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <title>Kaly city boys Airways - Booking Receipt</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; }
+                        .receipt-header { text-align: center; margin-bottom: 2rem; border-bottom: 2px solid #667eea; padding-bottom: 1rem; }
+                        .receipt-details { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+                        h2, h4 { color: #667eea; }
+                        .receipt { border: 2px dashed #667eea; padding: 2rem; border-radius: 10px; }
+                    </style>
+                </head>
+                <body>
+                    <div class="receipt">${receiptContent}</div>
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+        function downloadReceipt() {
+            // Create a simple text version for download
+            const booking = currentBooking;
+            const price = booking.price;
+            const taxes = Math.round(price * 0.15);
+            const total = price + taxes;
+            
+            const receiptText = `
+KALY-CITY-BOYS- BOOKING CONFIRMATION
+=====================================
+
+Booking ID: ${booking.bookingId}
+Booking Date: ${booking.bookingDate} at ${booking.bookingTime}
+
+PASSENGER INFORMATION
+---------------------
+Name: ${booking.passenger.name}
+Email: ${booking.passenger.email}
+Phone: ${booking.passenger.phone || 'Not provided'}
+Passport: ${booking.passenger.passport || 'Not provided'}
+
+FLIGHT INFORMATION
+------------------
+From: ${getLocationName(booking.from)}
+To: ${getLocationName(booking.to)}
+Departure: ${booking.departure}
+Return: ${booking.return || 'One-way'}
+Passengers: ${booking.passengers}
+Class: ${booking.class}
+
+PAYMENT SUMMARY
+---------------
+Base Fare: ${price}
+Taxes & Fees: ${taxes}
+Total Amount: ${total}
+
+Thank you for choosing KALY CITY BOYS Airways!
+Please arrive at the airport 2 hours before international flights.
+
+Contact: +260 774169681
+WhatsApp: https://wa.me/260774169681
+            `;
+
+            const blob = new Blob([receiptText], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `KALY CITY BOYS_Airways_Receipt_${booking.bookingId}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Modal functions
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const message = document.getElementById('contactMessage').value;
+
+            if (!email.includes('@')) {
+                alert('Please enter a valid email address with @ symbol');
+                return;
+            }
+
+            // Simulate form submission
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        // Update return date minimum when departure date changes
+        document.getElementById('departure').addEventListener('change', function() {
+            document.getElementById('return').min = this.value;
+        });
+
+        // WhatsApp integration for bookings
+        function sendWhatsAppMessage() {
+            const message = `Hello KALY CITY BOYS Airways! I'd like to inquire about flight bookings from ${userLocation ? 'my current location' : 'Lusaka'}.`;
+            const whatsappUrl = `https://wa.me/260774169681?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Add WhatsApp button click handler
+        document.querySelector('.whatsapp-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            sendWhatsAppMessage();
+        });
+    </script>
+</body>
+</html>
 
